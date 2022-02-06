@@ -4,7 +4,7 @@
   "description": "repository for backend cohort - Radium",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,15 +23,15 @@
     "cors": "^2.8.5",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
-    "isodate": "^0.1.4",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "mongoose": "^6.0.13",
+    "mongoose": "^6.0.14",
+    "mongoose-type-url": "^2.1.0",
+    "node-datetime": "^2.1.2",
     "nodemon": "^2.0.15",
-    "trim-body": "^0.0.4",
-    "trim-request": "^1.0.6",
-    "trim-request-body": "^1.0.1",
-    "underscore": "^1.13.2"
+    "redis": "^3.1.2",
+    "response-time": "^2.3.2",
+    "shortid": "^2.2.16",
+    "valid-url": "^1.0.9"
   }
 }

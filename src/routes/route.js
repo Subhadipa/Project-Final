@@ -1,25 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController')
+const bookController = require('../controllers/bookController')
+const reviewController = require('../controllers/reviewController')
+const myMiddleware = require('../middleWares/middleWare')
 
-const authorController = require("../controllers/authorController")
-const blogController = require("../controllers/blogController")
-const middleWare = require("../middleware/authentication")
-const Token = middleWare.tokenCheck
+router.post('/register', userController.userRegistration)
+router.post('/login', userController.userLogin)
+router.post('/books', myMiddleware.getUserDetails, bookController.createBook)
+router.get('/books', myMiddleware.getUserDetails, bookController.getQueryBooks)
+router.get('/books/:bookId', myMiddleware.getUserDetails, bookController.getParamsBook)
+router.put('/books/:bookId', myMiddleware.getUserDetails, bookController.updateBookById)
+router.delete('/books/:bookId', myMiddleware.getUserDetails, bookController.deleteBookById)
+router.post('/books/:bookId/review', reviewController.createReview)
+router.put('/books/:bookId/review/:reviewId', reviewController.updateReview)
+router.delete('/books/:bookId/review/:reviewId', reviewController.deleteReview)
 
-router.post('/authors',  authorController.createAuthor);
-
-router.post('/login', authorController.loginAuthor)
-
-router.post('/blogs', Token, blogController.createBlog);
-
-router.get('/blogs', Token, blogController.getFilterBlog);
-
-router.put('/blogs/:blogId', Token, blogController.updateBlog);
-
-router.delete('/blogs/:blogId', Token, blogController.deleteBlogbyId);
-
-router.delete('/blogs', Token, blogController.deleteBlog)
-
-
-
+//---------------------------selfTest----------------------------//
+// router.get('/testCount', bookController.testBoookCount)
 module.exports = router;
